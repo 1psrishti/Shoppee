@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Shoppee</string>
+    <string name="toppings">Toppings</string>
+    <string name="wc">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="qtty">Quantity</string>
+    <string name="os">Order Summary</string>
+    <string name="order">ORDER</string>
+</resources>
