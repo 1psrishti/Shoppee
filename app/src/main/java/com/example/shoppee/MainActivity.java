@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         EditText name = findViewById(R.id.naam);
         String text = name.getText().toString();
+        if(text.isEmpty()){
+            text = "Unnamed";
+        }
 
         int price = calculatePrice(haswc, haschoc);
 
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     // This method displays the given quantity value on the screen.
     private void display(int number) {
         TextView quantityTextView = findViewById(R.id.quantity_text_view);
-        quantityTextView.setText(number);
+        quantityTextView.setText(String.valueOf(number));
     }
 
     // This method displays the given text on the screen.
@@ -57,13 +62,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String createOrderSummary(int price, boolean bool1, boolean bool2, String name){
-        String orderSummary = "Name: " + name + "\nQuantity: " + quantity + "\nWhipped Cream? " + bool1 + "\nChocolate? " + bool2 + "\nTotal: $" + price + "\nThankyou!";
+        String orderSummary = "Name : " + name +
+                "\nQuantity : " + quantity +
+                "\nWhipped Cream? " + bool1 +
+                "\nChocolate? " + bool2 +
+                "\nTotal : $" + price +
+                "\n\nThankyou!";
         return orderSummary;
     }
 
     public void increment(View view){
         if (quantity == 100){
-            return;
+            Toast.makeText(this,"Too many drinks!",Toast.LENGTH_SHORT).show();
         } else {
             quantity = quantity + 1;
             display(quantity);
@@ -72,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void decrement(View view){
         if (quantity == 1){
-            return;
+            Toast.makeText(this,"Have a drink!",Toast.LENGTH_SHORT).show();
         }else {
             quantity = quantity - 1;
             display(quantity);
@@ -82,15 +92,14 @@ public class MainActivity extends AppCompatActivity {
     private int calculatePrice(boolean bool1, boolean bool2) {
         int price = 5;
 
-        if (bool1 == true){
+        if (bool1){
             price = price + 1;
         }
 
-        if (bool2 == true){
+        if (bool2){
             price = price + 2;
         }
 
-        int totalprice = price * quantity;
-        return totalprice;
+        return price * quantity;
     }
 }

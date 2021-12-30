@@ -7,11 +7,19 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Order"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+
     <EditText
         android:id="@+id/naam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="Enter Name Here"
         android:textColorHint="#A5A6A7"
         android:inputType="textCapWords"
         android:textColor="@color/black"
@@ -23,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:textStyle="bold"
         android:text="@string/toppings"
         android:textColor="@color/black"
         android:textSize="16sp" />
@@ -47,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:textStyle="bold"
         android:text="@string/qtty"
         android:textColor="@color/black"
         android:textSize="16sp" />
@@ -81,13 +91,23 @@
 
     </LinearLayout>
 
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/button"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="submitOrder"
+        android:text="@string/order" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:text="@string/os"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/order_summary_text_view"
@@ -99,11 +119,6 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="submitOrder"
-        android:text="@string/order" />
+
 
 </LinearLayout>
